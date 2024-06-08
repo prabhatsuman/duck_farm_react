@@ -6,7 +6,7 @@ import DealerInfo from './DealerInfo';
 import Home from './Home';
 
 export default function Dashboard() {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -17,7 +17,7 @@ export default function Dashboard() {
                 <Sidebar isOpen={isSidebarOpen} />
             <div className="flex flex-auto flex-col"> 
             <Navbar toggleSidebar={toggleSidebar} />
-                <main className="flex-auto p-6 ">
+                <main className="flex-auto p-6 h-screen">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="dealerinfo" element={<DealerInfo />} />
