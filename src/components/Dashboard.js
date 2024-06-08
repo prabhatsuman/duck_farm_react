@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-import Widget from './Widget';
+import DealerInfo from './DealerInfo';
+import Home from './Home';
 
 export default function Dashboard() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -11,12 +13,15 @@ export default function Dashboard() {
     };
 
     return (
-        <div className="flex h-screen">
-            <Sidebar isOpen={isSidebarOpen} />
-            <div className="flex-1 flex flex-col md:ml-64">
-                <Navbar toggleSidebar={toggleSidebar} />
-                <main className="flex-1 p-6 overflow-y-auto">
-
+        <div className="flex justify-center align-top"> 
+                <Sidebar isOpen={isSidebarOpen} />
+            <div className="flex flex-auto flex-col"> 
+            <Navbar toggleSidebar={toggleSidebar} />
+                <main className="flex-auto p-6 ">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="dealerinfo" element={<DealerInfo />} />
+                    </Routes>
                 </main>
             </div>
         </div>
